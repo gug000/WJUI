@@ -1,0 +1,11 @@
+
+<div class="{{wrapClassName}}" ng-class="{'fg-toggled': hasFocus}">
+    <input type="{{type}}"
+           placeholder="{{placeholder}}"
+           value="value"
+           id="{{id}}"
+           ng-model="ngModel"
+           ng-change="onChange()"
+           ng-focus="hasFocus=true"
+           ng-blur="hasFocus=false"/>
+</div>

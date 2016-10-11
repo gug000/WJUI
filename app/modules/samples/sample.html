@@ -1,0 +1,28 @@
+<div class="sample-group">
+    <p class="group-title">下拉列表选择Select</p>
+    <div class="sample-item-box">
+        <p class="sample-title">默认</p>
+        <wj-select place-holder="me.select.projectSelect.placeHolder" items="me.select.projectSelect.items"
+                   selected-item="me.select.projectSelect.currentItem"/>
+    </div>
+    <div class="sample-item-box">
+        <p class="sample-title login">不可选择</p>
+        <wj-select place-holder="me.select.bookSelect.placeHolder" items="me.select.bookSelect.items"
+                   selected-item="me.select.bookSelect.currentItem"/>
+    </div>
+    <div class="sample-item-box">
+        <p class="sample-title">带图标</p>
+        <wj-select place-holder="me.select.priceSelect.placeHolder" icon="true" items="me.select.priceSelect.items"
+                   selected-item="me.select.priceSelect.currentItem"
+                   wj-change="me.select.priceSelect.priceChange(item,prevItem)"
+                   />
+    </div>
+</div>
+
+<div class="sample-group">
+    <p class="group-title">树形菜单Menu</p>
+    <div class="sample-item-box">
+        <p class="sample-title">默认</p>
+        <wj-menu menu-data="me.menu" current-menu="me.currentMenu" wj-click="me.menuEvt.menuClick(menu)" wj-change="me.menuEvt.menuChange(menu,prevMenu)"/>
+    </div>
+</div>

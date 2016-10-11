@@ -1,0 +1,212 @@
+@borderColor:#F2F2F2;
+@borderRadius:3px;
+@fontSize:12px;
+@inputPadding:0 10px;
+@menuPadding: 0 55px;
+@inputColor:#666;
+@inputWidth:192px;
+@menuWidth:182px;
+@inputHeight:34px;
+@menuHeight:42px;
+@inputItemHeight:34px;
+@selectZindex:999;
+@inserShadowColor:#ddd;
+@shadowColor:#bbb;
+@itemHoverBgColor:#eaf8fe;
+@itemHoverColor:#2db7f5;
+@itemSelectedColor:#2db7f5;
+@backgroundGradient:-webkit-gradient(linear,0% 0%, 0% 100%, from(#FFFFFF), to(#F5F5F5));
+@backgroundColor:#F5F5F5;
+@hoverColor:#000;
+@hoverBorderColor:#bbb;
+@disabledColor:#CACACA;
+
+.boxSizing{
+  box-sizing: border-box;
+}
+.borderBottom{
+  border-bottom: 1px solid @borderColor;
+  border-radius:0;
+}
+.borderAll{
+  border: 1px solid @borderColor;
+  border-radius:@borderRadius;
+}
+.boxShadow{
+  box-shadow:  0 2px 5px @shadowColor;
+}
+*{
+  padding:0;
+  margin:0;
+  list-style: none;
+}
+body{
+  background:#F2F2F2;
+}
+.main-content{
+  padding:20px;
+  .boxSizing;
+}
+.wj-select-container{
+  position: relative;
+  .borderAll;
+  width:@inputWidth;
+  height:@inputHeight;
+  line-height: @inputHeight;
+  font-size: @fontSize;
+  color:@inputColor;
+  background:@backgroundColor;
+  background:@backgroundGradient;
+  .boxShadow;
+  
+
+  cursor: pointer;
+  .wj-select-wrapper{
+    position: absolute;
+    width:100%;
+    transform:scale(0);
+    opacity:0;
+    transform-origin:top left;
+    transition: transform opacity;
+    transition-duration: 250ms;
+    z-index: @selectZindex;
+  }
+  .wj-select-expand{
+    transform:scale(1);
+    opacity:1;
+  }
+  .wj-select-single{
+    position: relative;
+    width:100%;
+    height:100%;
+    padding:@inputPadding;
+    .boxSizing;
+    &:hover{
+    color:@hoverColor;
+  }
+  }
+  i{
+    position: absolute;
+    right:10px;
+    font-size:@fontSize+4;
+    top:8px;
+  }
+  ul{
+    position: absolute;
+    background: #fff;
+    width: @inputWidth;
+    margin: 0;
+    padding:0;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    top:0;
+    
+    left: -1px;
+    border: 1px solid @borderColor;
+    border-top:none;
+    .boxShadow;
+    
+
+  }
+  ul li{
+    line-height: @inputItemHeight;
+    height:@inputItemHeight;
+    padding:@inputPadding;
+    .boxSizing;
+    cursor: pointer;
+        position: relative;
+    i{
+      position: absolute;
+      right: 10px;
+      font-size: @fontSize+2;
+      top: 8px;
+      display: none;
+    }
+    &:hover{
+      color:@itemHoverColor;
+      background: @itemHoverBgColor;
+    }
+  }
+  ul li.disabled{
+    cursor:not-allowed !important;
+    color:@disabledColor !important;
+    &:hover{
+     background:#fff;
+
+    }
+  }
+  .wj-selected{
+    color:@itemSelectedColor;
+    i{
+      display:block;
+    }
+    span{
+      font-weight:bold;
+    }
+  }
+  .wj-select-icon-item{
+    margin: 10px;
+    span{
+      padding-left:@inputItemHeight;
+    }
+  }
+  .wj-select-icon{
+    position:absolute;
+    top:0;
+    left:0;
+    width:@inputItemHeight;
+    height:@inputItemHeight;
+    border-radius:@inputItemHeight;
+    img{
+      position:absolute;
+      top:0;
+      left:0;
+      max-width:100%;
+      border:none;
+      border-radius:@inputItemHeight;
+    }
+  }
+
+}
+.wj-menu-view{
+  border:1px solid @borderColor;
+  border-radius: @borderRadius;
+  background: #fff;
+
+}
+.wj-menu-list{
+  box-sizing: border-box;
+  display: none;
+  //transform-origin: top;
+  //transform: scaleY(0);
+  //height:0;
+  //transition: all 0.5s linear;
+}
+.wj-menu-list-expand{
+  //transform: scaleY(1);
+}
+.wj-menu,.wj-menu-group,.wj-menu-item{
+  position: relative;
+  font-size: @fontSize;
+  cursor: pointer;
+  width: @menuWidth;
+  line-height: @menuHeight;
+  box-sizing: border-box;
+
+  div{
+    padding: @inputPadding;
+    &:hover{
+      background: @itemHoverBgColor;
+      color: @itemHoverColor;
+    }
+  }
+}
+.wj-menu-selected{
+  border-right:2px solid @itemSelectedColor;
+  color: @itemSelectedColor;
+}
+.fa-angle-up:before,.fa-angle-down:before{
+  position: absolute;
+  right:16px;
+}

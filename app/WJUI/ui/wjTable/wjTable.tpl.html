@@ -1,0 +1,30 @@
+
+<div class="wj-table-responsive">
+    <table class="wj-table">
+        <thead>
+        <tr>
+            <th ng-repeat="tableName in itemName"><em>{{tableName}}</em></th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in items">
+            <td ng-repeat="itemValue in item">{{itemValue}}</td>
+            <td>
+                <button title="编辑" class="btn wj-btn btn-default waves-effect"
+                        ng-click="me.edit(item, $index, $event)">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button title="查看详情" class="btn wj-btn btn-primary waves-effect"
+                        ng-click="me.view(item, $index, $event)">
+                    <i class="fa fa-eye"></i>
+                </button>
+                <button title="删除" class="btn wj-btn btn-warning waves-effect"
+                        ng-click="me.remove(item, $index, $event)">
+                    <i class="fa fa-remove white"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,7 @@
+<div ng-click="toggleExpand(menu,$event);" style="{{getPadding(menu)}}" ng-class="{'wj-menu-selected':menu.selected}">
+    <span class="{{getMenuIcon(menu)}}">{{menu.title}}</span>
+</div>
+<ul class="wj-menu-list" ng-if="!isLeaf(menu)"  ng-class="{'wj-menu-list-expand':menu.$$expand}">
+    <li ng-repeat="menu in menu.nodes" ng-include="'WJUI/ui/wjMenu/wjuiMenuItem.tpl.html'"  ng-class="{true:'wj-menu-item',false:'wj-menu-group'}[(!menu.nodes || menu.nodes.length==0)]">
+    </li>
+</ul>
