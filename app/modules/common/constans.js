@@ -1,7 +1,7 @@
 (function(){
     var getAppStatic = function(){
         return {
-            baseUrl : 'http://gateway.whaley.cn'
+            baseUrl : 'http://xxx'
         };
     };
     angular.module('appConstants').constant('appStatic',getAppStatic());

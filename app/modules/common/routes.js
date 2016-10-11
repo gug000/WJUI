@@ -9,22 +9,6 @@
                     templateUrl: 'modules/samples/sample.html',
                     controller: 'SampleController'
                 }
-            },
-            {
-                state: 'login',
-                config: {
-                    url: '/login?returnUrl',
-                    templateUrl: 'modules/login/login.html',
-                    controller: 'LoginController'
-                }
-            },
-            {
-                state: 'dashboard',
-                config: {
-                    url: '/dashboard',
-                    templateUrl: 'modules/dashboard/dashboard.html',
-                    controller: 'DashboardController'
-                }
             }
         ]
     };
