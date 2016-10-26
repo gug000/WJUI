@@ -24,7 +24,9 @@
                 scope.ts = ts;
                 /* 设置默认值 */
                 scope.expand = false;
-                scope.selectedItem = scope.selectedItem || {text : scope.placeHolder || '请选择',value : '',index:-1};
+                if(!scope.selectedItem || !scope.selectedItem.text){
+                    scope.selectedItem = {text : scope.placeHolder || '请选择',value : '',index:-1};
+                }
                 /**
                  * 下拉列表展开及关闭事件处理
                  * @param event
