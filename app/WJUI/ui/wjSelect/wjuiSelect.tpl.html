@@ -5,9 +5,16 @@
         </i>
     </div>
     <div class="wj-select-wrapper" ng-show="expand" ng-class="{'wj-select-expand':expand}">
+
         <ul class="wj-select-list">
+            <div class="wj-select-filter" ng-if="filter">
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="search.filterStr"/>
+                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                </div>
+            </div>
             <li class="wj-select-item"
-                ng-repeat="item in items track by item.value"
+                ng-repeat="item in items|optionFilter:search.filterStr track by item.value "
                 ng-click="evItemClick(item, $index)"
                 ng-class="{'wj-selected': item.value===selectedItem.value,'wj-select-icon-item':icon,'disabled':item.disabled}">
                 <div class="wj-select-icon" ng-if="icon"><img ng-src="{{item.icon}}"/></div>

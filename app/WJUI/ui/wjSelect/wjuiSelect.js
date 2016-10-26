@@ -11,11 +11,13 @@
                 icon : '=',
                 selectedItem : '=',
                 placeHolder : '=',
+                filter : '=',
                 wjChange : '&',
                 // wjClick : '&'
             },
             templateUrl : 'WJUI/ui/wjSelect/wjuiSelect.tpl.html',
             link : function(scope, element, attrs, controller){
+                scope.search={filterStr : ''};
                 var ts = new Date().getTime();
                 /* 用于关闭当前页面所有其余select */
                 $(element[0]).attr('_ts',ts);
@@ -74,8 +76,28 @@
                     if(prevItem.value != scope.selectedItem.value){
                         scope.wjChange && scope.wjChange({item:scope.selectedItem,prevItem:prevItem});
                     }
-                }
+                };
+                scope.preventDismiss = function($event){
+                    $event.preventDefault();
+                    $event.stopPropagation();
+                };
             }
         };
+    }]).filter('optionFilter',[function(){
+        return function(optionArr,filterStr){
+            var arr = [];
+            if(!filterStr){
+                return optionArr;
+            }
+            if(!optionArr){
+                return arr;
+            }
+            optionArr.forEach(function(option){
+                if(option.text.indexOf(filterStr)>=0){
+                    arr.push(option);
+                }
+            });
+            return arr;
+        }
     }]);
 }());
